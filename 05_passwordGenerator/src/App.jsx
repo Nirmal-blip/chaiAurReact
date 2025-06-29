@@ -9,10 +9,12 @@ function App() {
 
 
 //useRef hook (used for taking the reference)
-const passwordRef = useRef(null);
+const passwordRef = useRef(null);//acha yeh keval reference leta hai  
 
 //copy to clipboard function
 const copyToClipboard =useCallback( () => {
+  passwordRef.current?.select();
+  //passwordRef.current?.setSelectionRange(0,3);// to set the range of selection
  window.navigator.clipboard.writeText(password)
  alert("Password copied to clipboard!");
 }, [password]);
@@ -39,7 +41,7 @@ const generatePassword = useCallback( ()=>{
 
 
 
-//use Effect hook
+//use Effect hook(initially run if there is a change in the dependency)
 
 useEffect(() => {
   generatePassword();

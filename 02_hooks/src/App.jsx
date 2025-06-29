@@ -9,7 +9,9 @@ const[counter,nirmalCounter]=useState(0);
 
 const add=()=>{
   console.log('add function called');
-  nirmalCounter(counter+1);
+  //interview question
+  nirmalCounter((prevCounter)=>prevCounter+1);//isme updates ko callback ke through krte hai kyunki hooks mai directly update nahi kr skte
+  nirmalCounter((prevCounter)=>prevCounter+1);
   
 }
 const remove=()=>{
@@ -18,7 +20,9 @@ const remove=()=>{
     return;
   }
   else{
-  nirmalCounter(counter-1);
+  nirmalCounter((prevCounter)=>prevCounter-1);
+  nirmalCounter((prevCounter)=>prevCounter-1);
+
   console.log('remove function called');}
 }
   return (
